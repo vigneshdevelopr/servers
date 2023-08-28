@@ -17,7 +17,6 @@ app.use("/api/auth", auth_route);
 app.use("/api/urlPrivate", urlPrivate_route);
 const allowedOrigins = [
     'https://shortlinker.netlify.app',
-    // Add other allowed origins here
   ];
   
   app.use(
@@ -29,6 +28,9 @@ const allowedOrigins = [
           callback(new Error('Not allowed by CORS'));
         }
       },
+      allowedHeaders: ["my-custom-header"],
+      methods: ["GET", "POST"],
+
     })
   );
   
