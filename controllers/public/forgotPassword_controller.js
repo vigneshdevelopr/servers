@@ -35,7 +35,7 @@ export const forgotPasswordHandler = async (req, res) => {
       toAddress: savedUser.email,
       mailSubject: "Password Reset Link",
       mailContent: `Dont worry, just click the following link to reset your password  -   
-        ${process.env.CLIENT_URL_RESETPWD}/${emailPayLoad}`,
+        ${process.env.CLIENT_URL_RESETPWD}/resetPassword/${emailPayLoad}`,
     };
     const mailResponse = await mailerFunc(mailDetails);
 
