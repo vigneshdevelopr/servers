@@ -18,8 +18,7 @@ app.use("/api/auth", auth_route);
 app.use("/api/urlPrivate", urlPrivate_route);
 
   
-app.use(
-    cors({origin: '*'}));
+app.use(cors());
   
 
 
