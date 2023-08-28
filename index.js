@@ -16,7 +16,7 @@ app.use("/", redirectUrl);
 app.use("/api/auth", auth_route);
 app.use("/api/urlPrivate", urlPrivate_route);
 const allowedOrigins = [
-    'https://shortlinker.netlify.app',
+    '*',
   ];
   
   app.use(
