@@ -11,11 +11,27 @@ const port = process.env.port
 const app = express();
 connectDB()
 
-app.use(cors());
 app.use(express.json())
 app.use("/", redirectUrl);
 app.use("/api/auth", auth_route);
 app.use("/api/urlPrivate", urlPrivate_route);
+const allowedOrigins = [
+    'https://shortlinker.netlify.app',
+    // Add other allowed origins here
+  ];
+  
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      },
+    })
+  );
+  
 
 
 app.get('/',(req,res)=>{
